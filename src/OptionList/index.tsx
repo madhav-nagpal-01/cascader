@@ -3,19 +3,19 @@ import classNames from 'classnames';
 import { useBaseProps } from 'rc-select';
 import type { RefOptionListProps } from 'rc-select/lib/OptionList';
 import * as React from 'react';
-import type { DefaultOptionType, SingleValueType } from '../Cascader';
+import type { DefaultOptionType,SingleValueType } from '../Cascader';
 import CascaderContext from '../context';
 import {
-  getFullPathKeys,
-  isLeaf,
-  scrollIntoParentView,
-  toPathKey,
-  toPathKeys,
-  toPathValueStr,
+getFullPathKeys,
+isLeaf,
+scrollIntoParentView,
+toPathKey,
+toPathKeys,
+toPathValueStr
 } from '../utils/commonUtil';
 import { toPathOptions } from '../utils/treeUtil';
 import CacheContent from './CacheContent';
-import Column, { FIX_LABEL } from './Column';
+import Column,{ FIX_LABEL } from './Column';
 import useActive from './useActive';
 import useKeyboard from './useKeyboard';
 
@@ -213,6 +213,8 @@ const RefOptionList = React.forwardRef<RefOptionListProps>((props, ref) => {
     );
   });
 
+  const messages = activeValueCells.join(" / ")
+
   // >>>>> Render
   return (
     <CacheContent open={open}>
@@ -224,6 +226,22 @@ const RefOptionList = React.forwardRef<RefOptionListProps>((props, ref) => {
         ref={containerRef}
       >
         {columnNodes}
+      </div>
+      <div
+        aria-live="polite"
+        style={{
+          zIndex: 9999,
+          border: 0,
+          clip: 'rect(1px, 1px, 1px, 1px)',
+          height: 1,
+          width: 1,
+          position: 'absolute',
+          overflow: 'hidden',
+          padding: 0,
+          whiteSpace: 'nowrap',
+        }}
+      >
+        {messages}
       </div>
     </CacheContent>
   );
