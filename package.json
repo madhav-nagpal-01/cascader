@@ -1,7 +1,7 @@
 {
-  "name": "rc-cascader",
-  "version": "3.16.0",
-  "description": "cascade select ui component for react",
+  "name": "@code/accessible-cascader",
+  "version": "1.0.0",
+  "description": "cascader based on rc-cascader with few changes to make it accessible",
   "keywords": [
     "react",
     "react-component",
@@ -73,7 +73,7 @@
     "@babel/runtime": "^7.12.5",
     "array-tree-filter": "^2.1.0",
     "classnames": "^2.3.1",
-    "rc-select": "~14.8.0",
+    "rc-select": "~14.9.0",
     "rc-tree": "~5.7.0",
     "rc-util": "^5.35.0"
   },
