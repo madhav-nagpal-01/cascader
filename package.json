@@ -1,6 +1,6 @@
 {
-  "name": "@accessible/cascader",
-  "version": "1.0.2",
+  "name": "accessible-cascader",
+  "version": "1.0.0",
   "description": "cascade select ui component for react",
   "keywords": [
     "react",
