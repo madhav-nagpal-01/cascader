@@ -6,3 +6,6 @@ To get proposal accepted by rc-cascader.
 Till that to use this fork.
 
 The show must go on.
+
+# Maintenance
+npm publish --access public
