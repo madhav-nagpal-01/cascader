@@ -150,6 +150,16 @@ const RawOptionList = React.forwardRef<RefOptionListProps, RawOptionListProps>((
     return optionList;
   }, [mergedOptions, activeValueCells, fieldNames]);
 
+  const optionValueLabelMap = React.useMemo(() => {
+    const valueLabelMap = {};
+    optionColumns.forEach(optionColumn => {
+      optionColumn.options.forEach(item => {
+        valueLabelMap[item.value] = item.label;
+      });
+    })
+    return valueLabelMap;
+  }, [optionColumns])
+
   // ========================= Keyboard =========================
   const onKeyboardSelect = (selectValueCells: SingleValueType, option: DefaultOptionType) => {
     if (isSelectable(option)) {
@@ -222,7 +232,7 @@ const RawOptionList = React.forwardRef<RefOptionListProps, RawOptionListProps>((
     );
   });
 
-  const messages = activeValueCells.join(" / ")
+  const messages = activeValueCells.map(item => optionValueLabelMap[item]).join(" / ")
 
   // >>>>> Render
   return (
